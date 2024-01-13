@@ -2,7 +2,7 @@
 import NavBar from "@/components/NavbarComponent";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-// import { currencyFormatted } from "@/lib/serverFunction";
+import { currencyFormatted } from "@/lib/serverFunction";
 
 export default function DetailProduct() {
   const { slug } = useParams();
@@ -22,6 +22,8 @@ export default function DetailProduct() {
     name: string;
     slug: string;
     description: string;
+    tags: string[]
+    images: string[]
     price: number;
     thumbnail: string;
   };
@@ -38,7 +40,6 @@ export default function DetailProduct() {
             cache: "no-store",
           }
         );
-
 
         const resJson: response = await response.json();
 
@@ -72,7 +73,6 @@ export default function DetailProduct() {
 
   return (
     <>
-
       <NavBar />
       <section className="flex justify-center py-40">
         <div className="relative flex bg-clip-border rounded-xl bg-white text-gray-700 shadow-md w-full max-w-[70rem] h-[500px] flex-row">
@@ -83,6 +83,7 @@ export default function DetailProduct() {
               className="object-cover w-full h-full"
             />
           </div>
+
           <div className="p-6">
             <h6 className="block mb-4 font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-gray-700 uppercase">
               {product?.name}
@@ -93,10 +94,15 @@ export default function DetailProduct() {
             <p className="block mb-8 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
               {product?.description}
             </p>
-            <p className="pt-10">Rp. {product?.price}, 00</p>
+            <p className="block mb-8 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
+              #{product?.tags[0]} 
+              #{product?.tags[1]}
+              #{product?.tags[2]}
+            </p>
+            <p className="pt-10">{product?.price}</p>
             <div className="flex justify-center pt-20">
               <button
-                className="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none hover:bg-gray-900/10 active:bg-gray-900/20"
+                className="flex items-center gap-2 px-6 py-1 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none hover:bg-gray-900/10 active:bg-gray-900/20"
                 type="button"
                 onClick={() => handleClick(product?._id)}
               >
@@ -120,7 +126,28 @@ export default function DetailProduct() {
           </div>
         </div>
       </section>
-
+      <div className="items-center grid grid-cols-4 gap-4">
+        <div className="card w-96 glass">
+          <figure>
+            <img src={product?.images[0]} alt="car!" />
+          </figure>
+        </div>
+        <div className="card w-96 glass">
+          <figure>
+            <img src={product?.images[1]} alt="car!" />
+          </figure>
+        </div>
+        <div className="card w-96 glass">
+          <figure>
+            <img src={product?.images[2]} alt="car!" />
+          </figure>
+        </div>
+        <div className="card w-96 glass">
+          <figure>
+            <img src={product?.images[3]} alt="car!" />
+          </figure>
+        </div>
+      </div>
     </>
   );
 }

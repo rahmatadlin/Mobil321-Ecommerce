@@ -50,18 +50,7 @@ export default function CartPage() {
 
         const data = resJson.data;
 
-        // console.log(data);
-        // const dataId = data.map((el) => {
-        //   return el._id;
-        // });
 
-        // console.log(dataId, "===id");
-
-        // setIdWish(dataId);
-
-        // const newData = data.map((el) => {
-        //   return el.Products;
-        // });
 
         const newData = data.map((el) => {
           return {
@@ -70,7 +59,6 @@ export default function CartPage() {
           };
         });
 
-        // console.log(newData, "========");
         setProduct(newData);
       } catch (error) {
         console.log(error);
@@ -85,7 +73,7 @@ export default function CartPage() {
       method: "DELETE",
       body: JSON.stringify(id),
       headers: {
-        "Content-Type": "application/json", //ini kigta kasih tau bahwa data yang kita kirim itu bentuk nya
+        "Content-Type": "application/json", 
       },
     });
 

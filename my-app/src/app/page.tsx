@@ -5,6 +5,8 @@ import Footer from "../components/FooterComp";
 import { TopCard } from "@/components/TopCard";
 import { CarouselWithContent } from "@/components/Carousel";
 import ServerProtectedComponents from "@/components/ServerProtectedComponents";
+import BannerComponent from "@/components/BannerComponent";
+
 
 export default async function Home() {
   return (
@@ -19,6 +21,8 @@ export default async function Home() {
             {/* image home */}
             <CarouselWithContent />
             {/* end image home */}
+            
+            <BannerComponent />
 
             <TopCard />
             <section className=" flex justify-center pt-10">

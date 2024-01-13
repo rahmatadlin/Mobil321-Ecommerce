@@ -1,9 +1,9 @@
-"use server";
+// "use server";
 import Link from "next/link";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 // import { cookies } from "next/headers";
 // import { redirect } from "next/navigation";
-import { ButtonL } from "./ButtonLogout";
+// import { ButtonL } from "./ButtonLogout";
 const NavBar = () => {
   return (
     <>
@@ -60,12 +60,12 @@ const NavBar = () => {
           Logout
         </button>
       </form> */}
-              <Link
+              {/* <Link
                 href="/login"
                 className="hidden select-none rounded-lg bg-gradient-to-tr from-gray-900 to-gray-800 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
               >
                 Sign in
-              </Link>
+              </Link> */}
             </div>
             <button
               className="relative ml-auto h-6 max-h-[40px] w-6 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden"
