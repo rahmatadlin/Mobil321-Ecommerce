@@ -1,2 +1,2 @@
 # Mobil321-Ecommerce
-Adalah e-commerce jual beli mobil
+A web based for buying and selling cars using Next JS
